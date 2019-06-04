@@ -3,15 +3,15 @@
 
 ## Purpose
 
-To avoid changing orientation of photo automatically which taken via camera of user's device, you have to use 'exif-js' and 'blueimp-load-image library'.
+To avoid changing orientation of photo automatically which taken via camera of user's device, you have to use 'exif-js' and 'blueimp-load-image' library.
 
-'exif-js' and 'blueimp-load-image' are very powerfull and easy to use. But developing in vue.js it might be quiite annoying. (Not difficult but need take some time.)
+'exif-js' and 'blueimp-load-image' are very powerful and easy to use. But where developing in vue.js, it might be quite annoying. (Not difficult but need take some time.)
 
 When you are working on some mobile web project (including webview of application), you might have to access camera and photos then you should overcome 'orientation of photo' problem.
 
-So I made it prevent changing orientation automatically in '*.vue' component.
+So I made it prevent changing orientation automatically in '*.vue' component. (Of course, absolutely, this component using 'exif-js' and 'blueimp-load-image')
 
-This component provide invisible 'input (type=file)' and you can customize it whatevet you want.
+This component provides invisible 'input (type=file)' and you can customize it whatever you want.
 
 This component, seems like a 'input (type=file)', has function that pass image file of converted binary data with original orientation.
 
@@ -19,7 +19,7 @@ This component, seems like a 'input (type=file)', has function that pass image f
 
 stackoverflow: https://stackoverflow.com/questions/20600800/js-client-side-exif-orientation-rotate-and-mirror-jpeg-images#answer-39384061
 
-(*This answer is very helpful to solve my problem.)
+(*This answer was very helpful to solve my problem.)
 
 ## How to install
 
@@ -58,7 +58,7 @@ Or in your entry file. (ex: main.js)
 
 3. Pass maximum length of array containing images to 'max' for hiding 'vmc-cmpt' component. **It's not essential, but recommended.**
 
-4. You could insert slot to 'vmc-cmpt' and could customize button which you inserted. (Add icon image or text.)
+4. You could insert slot to 'vmc-cmpt' and could customize button which you inserted. (icons, text, background image etc...)
 
 5. 'imgToData' is custom event that you could handle converted image with this event.
 
