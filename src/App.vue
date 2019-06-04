@@ -17,7 +17,8 @@
       </li>
       <li class="images-list-item">
         <vmc-cmpt
-          @uploadImg="passImageToArray"
+          @imgToData="passImageToArray"
+          :len="imgList.length"
           :max="max"
         >
           <span class="slot-span">
@@ -43,11 +44,10 @@ export default {
   },
   methods: {
     passImageToArray (value) {
-      if (this.imgList.length === this.max) return false
       this.imgList.push(value)
     },
     removeImageFromArray (idx) {
-
+      this.imgList.splice(idx, 1)
     }
   }
 }

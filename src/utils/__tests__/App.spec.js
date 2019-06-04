@@ -10,6 +10,9 @@ describe('App.vue', () => {
   })
   
   test('removeImageFromArray로 클릭 이벤트가 발생한 아이템을 imgList에서 삭제한다.', () => {
-    
+    wrapper.vm.imgList = Array(10).fill('http://some_url/image/path')
+    expect(wrapper.vm.imgList.length).toBe(10)
+    wrapper.vm.removeImageFromArray(9)
+    expect(wrapper.vm.imgList.length).toBe(9)
   })
 })

@@ -7,7 +7,7 @@
       <slot></slot>
     </button>
     <input
-      @change="uploadImg($event)"
+      @change="imgToData($event)"
       ref="vmc-upload-image"
       type="file"
       accept="image/*"
@@ -22,6 +22,10 @@ export default {
     max: {
       type: Number,
       required: false
+    },
+    len: {
+      type: Number,
+      requried: true
     }
   },
   created () {
@@ -29,18 +33,18 @@ export default {
   },
   methods: {
     hideOrShowBtn () {
+      if (this.max === undefined) return false
       const li = this.$el.parentElement
       const ul = li.parentElement
       const count = ul.childElementCount
-      if (this.max !== undefined && this.max <= count) {
+      if (this.max !== undefined && (this.max + 1) <= count) {
         li.style.display = 'none'
         return false
       } else {
         li.style.display = 'block'
       }
     },
-    uploadImg (evt) {
-      this.hideOrShowBtn()
+    imgToData (evt) {
       if (evt.target.files.length > 0) {
         /* eslint-disable */
         const SELF = this
@@ -58,13 +62,18 @@ export default {
               EXIF.getData(img, function () {
                 const ORIENTATION = EXIF.getTag(this, 'Orientation')
                 const CANVAS = loadImage.scale(img, { orientation: ORIENTATION || 0, maxWidth: 500, canvas: true })
-                SELF.$emit('uploadImg', CANVAS.toDataURL())
+                SELF.$emit('imgToData', CANVAS.toDataURL())
                 SELF.$refs['vmc-upload-image'].value = ''
               })
             }
           })
         }
       }
+    }
+  },
+  watch: {
+    len () {
+      this.hideOrShowBtn()
     }
   }
 }
