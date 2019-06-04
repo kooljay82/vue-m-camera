@@ -1,19 +1,20 @@
 {
-  "name": "vue-m-camera",
+  "name": "@kooljay82/vue-m-camera",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name VmcCmpt ./src/components/VmcCmpt.vue",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
   },
+  "main": "./dist/VmcCmpt.umd.js",
   "dependencies": {
     "blueimp-load-image": "^2.12.2",
     "core-js": "^2.6.5",
     "exif-js": "^2.1.0",
-    "reset-css": "^4.0.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -32,5 +33,26 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kooljay82/vue-m-camera.git"
+  },
+  "author": "kooljay82",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kooljay82/vue-m-camera/issues"
+  },
+  "homepage": "https://github.com/kooljay82/vue-m-camera#readme"
 }
