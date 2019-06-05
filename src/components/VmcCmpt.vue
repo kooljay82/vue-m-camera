@@ -19,13 +19,17 @@
 import ExifRegister from '@/utils/ExifRegister'
 export default {
   props: {
+    len: {
+      type: Number,
+      requried: true
+    },
     max: {
       type: Number,
       required: false
     },
-    len: {
+    maxWidth: {
       type: Number,
-      requried: true
+      default: 500
     }
   },
   created () {
@@ -61,7 +65,7 @@ export default {
             } else {
               EXIF.getData(img, function () {
                 const ORIENTATION = EXIF.getTag(this, 'Orientation')
-                const CANVAS = loadImage.scale(img, { orientation: ORIENTATION || 0, maxWidth: 500, canvas: true })
+                const CANVAS = loadImage.scale(img, { orientation: ORIENTATION || 0, maxWidth: this.maxWidth, canvas: true })
                 SELF.$emit('imgToData', CANVAS.toDataURL())
                 SELF.$refs['vmc-upload-image'].value = ''
               })

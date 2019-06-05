@@ -20,6 +20,7 @@
           @imgToData="passImageToArray"
           :len="imgList.length"
           :max="max"
+          :maxWidth="maxWidth"
         >
           <span class="slot-span">
             <i>&#43;</i>
@@ -38,8 +39,9 @@ export default {
   },
   data () {
     return {
+      imgList: [],
       max: 10,
-      imgList: []
+      maxWidth: 600
     }
   },
   methods: {
