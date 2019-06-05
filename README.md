@@ -62,6 +62,8 @@ Or in your entry file. (ex: main.js)
 
 5. 'imgToData' is custom event that you could handle converted image with this event.
 
+6. Pass 'maxWidth' for image scaling. **It's optional, default is 500'**
+
 ```
   <ul class="images-list">
     <li
