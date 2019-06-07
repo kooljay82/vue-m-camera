@@ -43,7 +43,6 @@ export default {
       const count = ul.childElementCount
       if (this.max !== undefined && (this.max + 1) <= count) {
         li.style.display = 'none'
-        return false
       } else {
         li.style.display = 'block'
       }
